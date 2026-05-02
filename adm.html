@@ -1,0 +1,67 @@
+<<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Admin — Igreja</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style (1).css">
+</head>
+<body class="admin-page">
+
+<div class="page-wrapper">
+
+  <!-- LOGIN -->
+  <div id="login-section">
+    <div class="login-card">
+      <div class="cross-icon">✝</div>
+      <h1>Painel Administrativo</h1>
+      <p>Digite a senha para acessar</p>
+
+      <div class="field" id="f-senha">
+        <label>Senha</label>
+        <input type="password" id="senha" placeholder="••••••••" onkeydown="if(event.key==='Enter') fazerLogin()">
+        <div class="error-msg">Senha incorreta.</div>
+      </div>
+
+      <button class="btn-submit" onclick="fazerLogin()">🔐 Entrar</button>
+    </div>
+  </div>
+
+  <!-- PAINEL -->
+  <div id="painel-section" style="display:none">
+    <header class="admin-header">
+      <div>
+        <div class="cross-icon small">✝</div>
+        <h1>Painel Administrativo</h1>
+      </div>
+      <button class="btn-sair" onclick="sair()">Sair</button>
+    </header>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num" id="total-count">0</div>
+        <div class="stat-label">Membros cadastrados</div>
+      </div>
+      <div class="stat-card destaque" id="stat-bday" style="display:none">
+        <div class="stat-num" id="bday-count">0</div>
+        <div class="stat-label">🎂 Aniversariante(s) hoje</div>
+      </div>
+    </div>
+
+    <!-- AÇÕES -->
+    <div class="actions-row">
+      <input type="text" id="busca" placeholder="🔍 Buscar membro..." oninput="filtrar()" class="search-input">
+      <button class="btn-danger-sm" onclick="limparTudo()">🗑 Limpar tudo</button>
+    </div>
+
+    <!-- LISTA -->
+    <div id="lista-admin"></div>
+  </div>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>

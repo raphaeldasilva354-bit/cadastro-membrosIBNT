@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro de Membros — Igreja</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style (1).css">
+</head>
+<body class="public-page">
+
+<div class="page-wrapper">
+  <header class="site-header">
+    <div class="cross-icon">✝</div>
+    <h1>Cadastro de Membros</h1>
+    <p>Preencha o formulário abaixo para se cadastrar</p>
+  </header>
+
+  <!-- FORMULÁRIO -->
+  <div class="form-card" id="form-section">
+    <div class="field" id="f-nome">
+      <label>Nome completo</label>
+      <input type="text" id="nome" placeholder="Ex: João da Silva">
+      <div class="error-msg">Informe o nome completo.</div>
+    </div>
+
+    <div class="field" id="f-nasc">
+      <label>Data de nascimento</label>
+      <input type="date" id="nasc" onchange="autoIdade()">
+      <div class="error-msg">Informe a data de nascimento.</div>
+    </div>
+
+    <div class="field" id="f-idade">
+      <label>Idade</label>
+      <input type="number" id="idade" placeholder="Calculada automaticamente" min="0" max="120">
+      <div class="error-msg">Informe uma idade válida.</div>
+    </div>
+
+    <div class="field" id="f-genero">
+      <label>Gênero</label>
+      <select id="genero">
+        <option value="">-- Selecione --</option>
+        <option>Masculino</option>
+        <option>Feminino</option>
+      </select>
+      <div class="error-msg">Selecione o gênero.</div>
+    </div>
+
+    <div class="field" id="f-cel1">
+      <label>Celular principal</label>
+      <input type="text" id="cel1" placeholder="(99) 99999-9999" maxlength="15" oninput="mascara(this)">
+      <div class="error-msg">Informe um celular válido.</div>
+    </div>
+
+    <div class="field">
+      <label>Segundo celular <span class="optional">(opcional)</span></label>
+      <input type="text" id="cel2" placeholder="(99) 99999-9999" maxlength="15" oninput="mascara(this)">
+    </div>
+
+    <div class="field" id="f-funcao">
+      <label>Função na Igreja</label>
+      <input type="text" id="funcao" placeholder="Ex: Membro, Adolecente, Obreiro...">
+      <div class="error-msg">Informe a função.</div>
+    </div>
+
+    <div class="field" id="f-civil">
+      <label>Estado civil</label>
+      <select id="civil">
+        <option value="">-- Selecione --</option>
+        <option>Solteiro(a)</option>
+        <option>Casado(a)</option>
+         <option>Divorciado(a)</option>
+        <option>Viúvo(a)</option>
+        
+      </select>
+      <div class="error-msg">Selecione o estado civil.</div>
+    </div>
+
+    <button class="btn-submit" onclick="cadastrar()" id="btn-cadastrar">
+      <span id="btn-text">✅ Realizar Cadastro</span>
+    </button>
+  </div>
+
+  <!-- CONFIRMAÇÃO -->
+  <div class="confirm-card" id="confirm-section" style="display:none">
+    <div class="confirm-icon">🙏</div>
+    <h2>Cadastro realizado!</h2>
+    <p>Seu cadastro foi enviado com sucesso.<br>Que Deus abençoe sua vida!</p>
+    <button class="btn-novo" onclick="novoCadastro()">Fazer novo cadastro</button>
+  </div>
+
+  <footer class="site-footer">
+    <a href="admin.html" class="admin-link">Acesso Administrativo</a>
+  </footer>
+</div>
+
+<script type="module" src="app (2).js"></script>
+</body>
+</html>
